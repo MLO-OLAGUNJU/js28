@@ -8,5 +8,17 @@ addEventListener("input", (myEvent) => {
   if (!found && phone.lenght) {
     input.classList.add("invalid");
     format.classList.add("block");
+  } else {
+    input.classList.remove("invalid");
+    format.classList.remove("block");
   }
 });
+
+document.getElementById("phoneForm"),
+  addEventListener("submit", (myEvent) => {
+    myEvent.preventDefault();
+    const input = document.getElementById("phoneNum");
+    const regex = /[()-. ]/g;
+    const savedPhoneNum = input.value.replaceAll(regex, "");
+    console.log(savedPhoneNum);
+  });
